@@ -1,10 +1,21 @@
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import React, { useEffect } from "react";
 import { useAppTheme } from "../../resources/ThemeContext";
 import LottieView from "lottie-react-native";
+import { FONTS } from "../../resources";
+import { useNavigation } from "@react-navigation/native";
 
 const SplashScreen = () => {
   const theme = useAppTheme();
+    const navigation = useNavigation();
+
+    useEffect(() => {
+    const timer = setTimeout(() => {
+      navigation.replace("BOTTOM_TAB"); // 👈 change this if your screen name is different
+    }, 3000); // 3 seconds
+
+    return () => clearTimeout(timer); // cleanup
+  }, []);
   return (
     <SafeAreaView
       style={[
@@ -14,18 +25,16 @@ const SplashScreen = () => {
           justifyContent: "center",
           alignItems: "center",
         },
-        { backgroundColor: theme.COLORS.background },
+        { backgroundColor: theme.COLORS.timerBackground },
       ]}
     >
-      <LottieView
-        source={require("../../assets/anim/Clocktimer.json")}
-        autoPlay
-        loop
-        style={{
-          width: 250,
-          height: 250,
-        }}
-      />
+      <Text
+        style={[FONTS.h1, { color: theme.COLORS.timerBorder }]}
+        numberOfLines={1}
+        ellipsizeMode="tail"
+      >
+        Splash
+      </Text>
     </SafeAreaView>
   );
 };

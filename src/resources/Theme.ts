@@ -40,6 +40,10 @@ export const lightTheme = {
     lightGray1: "#999898",
     unSelectedGray: "#C0C0C0",
     background: "#FFFFFF",
+    timerBackground: "#FFF0F0",
+    timerBorder:'#581919',
+    
+  
     text: "#000000",
     card: "#F6F6F6",
     primaryColor: '#0af',
@@ -57,6 +61,8 @@ export const darkTheme = {
   COLORS: {
     ...lightTheme.COLORS,
     background: "#000000",
+    timerBackground: "#581919",
+    timerBorder:'#FFF0F0',
     text: "#FFFFFF",
     card: "#1E1E1E",
     lightGray: "#444444",
